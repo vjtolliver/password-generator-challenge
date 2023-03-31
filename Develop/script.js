@@ -19,6 +19,7 @@ function askprompts() {
   var userChoice = window.prompt("Enter a desired password length of 8 to 128 characters")
   if (userChoice > 7 && userChoice < 129) {
     choiceArr.push(userChoice);
+    console.log(choiceArr)
     window.confirm("You chose " + userChoice + " characters.");
     askLowercase ();
   } else {
@@ -29,7 +30,7 @@ function askprompts() {
 function askLowercase() {
   var userInput = window.confirm("Do you want to include lowercase letters in your password?")
   if (userInput) {
-    userArr.push(lowercaseArr);
+    userArr.push(...lowercaseArr);
     console.log(choiceArr);
     console.log(userArr);
     askUppercase ();
@@ -41,7 +42,7 @@ function askLowercase() {
 function askUppercase() {
   var userInput = window.confirm("Do you want to include uppercase letters in your password?")
   if (userInput) {
-    userArr.push(uppercaseArr);
+    userArr.push(...uppercaseArr);
     console.log(choiceArr);
     console.log(userArr);
     askNumbers ();
@@ -53,7 +54,7 @@ function askUppercase() {
 function askNumbers () {
   var userInput = window.confirm("Do you want to include numbers in your password?")
   if (userInput) {
-    userArr.push(numArr);
+    userArr.push(...numArr);
     console.log(choiceArr);
     console.log(userArr);
     askSpcl ();
@@ -65,12 +66,12 @@ function askNumbers () {
 function askSpcl () {
   var userInput = window.confirm("Do you want to include special characters in your password?")
   if (userInput) {
-    userArr.push(spclArr);
+    userArr.push(...spclArr);
     console.log(choiceArr);
     console.log(userArr);
     generatePassword ();
   } else {
-    writePassword ();
+    generatePassword ();
   }
 }
 
@@ -126,11 +127,27 @@ function writePassword() {
   passwordText.value = password;
 
 }
+//var userChoice = choiceArr
+var passwordLength = choiceArr[0]
 
-function generatePassword() {
-  var rndmPassword = userArr[Math.floor(Math.random()*choiceArr)];
-window.alert(rndmPassword)
-}
+function generatePassword(arr) {
+
+  //userArr({length: passwordLength}, () => Math.floor(Math.random() * passwordLength))
+
+
+  //for (var i = 0; i < choiceArr +1 ; i++) {
+    //if (passwordLength )
+    var rndmPassword = Math.floor(Math.random() * userArr);
+    //return randomPasswordIndex [];
+
+    //var rndmPassword = userArr[rndmPasswordIndex];
+
+    window.alert(rndmPassword)
+  }
+
+
+//window.alert(rndmPassword)
+//}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

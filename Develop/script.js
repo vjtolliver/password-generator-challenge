@@ -9,12 +9,18 @@ var lowercaseArr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", 
 var uppercaseArr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var numArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 var spclArr = ["!", "#", "$", "%", "&", "(", ")", "*", "+", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "{", "}", "~"]
+var choiceArr = []
+var userArr = []
+
+//var userChoice = window.prompt("Enter a desired password length of 8 to 128 characters")
 
 // Created first window prompt
 function askprompts() {
-var userChoice = window.prompt("Enter a desired password length of 8 to 128 characters")
+  var userChoice = window.prompt("Enter a desired password length of 8 to 128 characters")
   if (userChoice > 7 && userChoice < 129) {
+    choiceArr.push(userChoice);
     window.confirm("You chose " + userChoice + " characters.");
+    askLowercase ();
   } else {
     window.alert("Error: Unauthorized input. Please try again.");
   }
@@ -23,9 +29,15 @@ var userChoice = window.prompt("Enter a desired password length of 8 to 128 char
 function askLowercase() {
   var userInput = window.confirm("Do you want to include lowercase letters in your password?")
   if (userInput) {
-    console.log (userChoice * lowercaseArr)
+    userArr.push(lowercaseArr);
+    console.log(choiceArr);
+    console.log(userArr);
+    askUppercase ();
   }
 }
+
+function 
+
 
 //window.confirm("Do you want to include lowercase letters in your password?");
 //window.confirm("Do you want to include uppercase letters in your password?");

@@ -33,10 +33,22 @@ function askLowercase() {
     console.log(choiceArr);
     console.log(userArr);
     askUppercase ();
+  } else {
+    askUppercase ();
   }
 }
 
-function 
+function askUppercase() {
+  var userInput = window.confirm("Do you want to include uppercase letters in your password?")
+  if (userInput) {
+    userArr.push(uppercaseArr);
+    console.log(choiceArr);
+    console.log(userArr);
+    askNumbers ();
+  } else {
+    askNumbers ();
+  }
+}
 
 
 //window.confirm("Do you want to include lowercase letters in your password?");

@@ -50,6 +50,18 @@ function askUppercase() {
   }
 }
 
+function askNumbers () {
+  var userInput = window.confirm("Do you want to include numbers in your password?")
+  if (userInput) {
+    userArr.push(numArr);
+    console.log(choiceArr);
+    console.log(userArr);
+    askSpcl ();
+  } else {
+    askSpcl ();
+  }
+}
+
 
 //window.confirm("Do you want to include lowercase letters in your password?");
 //window.confirm("Do you want to include uppercase letters in your password?");

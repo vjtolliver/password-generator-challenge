@@ -62,6 +62,17 @@ function askNumbers () {
   }
 }
 
+function askSpcl () {
+  var userInput = window.confirm("Do you want to include special characters in your password?")
+  if (userInput) {
+    userArr.push(spclArr);
+    console.log(choiceArr);
+    console.log(userArr);
+    generatePassword ();
+  } else {
+    writePassword ();
+  }
+}
 
 //window.confirm("Do you want to include lowercase letters in your password?");
 //window.confirm("Do you want to include uppercase letters in your password?");
@@ -114,6 +125,11 @@ function writePassword() {
 
   passwordText.value = password;
 
+}
+
+function generatePassword() {
+  var rndmPassword = userArr[Math.floor(Math.random()*choiceArr)];
+window.alert(rndmPassword)
 }
 
 // Add event listener to generate button
